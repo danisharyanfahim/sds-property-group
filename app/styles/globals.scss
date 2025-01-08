@@ -1,0 +1,72 @@
+@use "./footer.scss";
+@use "./navbar.scss";
+@import url("./_fonts.css");
+@import url("./_variables.css");
+
+* {
+  position: relative;
+  box-sizing: border-box;
+  padding: 0rem;
+  margin: 0rem;
+}
+
+html,
+body {
+  width: 100%;
+}
+
+button {
+  background-color: transparent;
+  border: 0px solid transparent;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+small,
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input {
+  font-family: Roboto, sans-serif;
+  font-weight: 100;
+}
+
+input {
+  outline: none;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 0px;
+  padding: 0.5rem;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.page-section {
+  padding-left: clamp(0rem, -38.571rem + 42.857vw, 30rem);
+  padding-right: clamp(0rem, -38.571rem + 42.857vw, 30rem);
+  width: 100%;
+}
+
+.page {
+  margin-top: 5rem;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
