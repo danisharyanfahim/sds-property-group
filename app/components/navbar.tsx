@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
+import { FaPhone } from "react-icons/fa";
 import { IoMenu } from "react-icons/io5";
 
 const navButtonInfo = [
@@ -24,11 +25,10 @@ const Navbar = () => {
         </Link>
         <div className="right-side">
           <h4 id="phone-number">
+            <FaPhone className="phone-icon" id="navbar-phone-icon" />
             123-456-7890
           </h4>
-          <button id="schedule-button">
-            Book a Consultation
-          </button>
+          <button id="schedule-button">Book a Consultation</button>
           <button
             className="nav-menu-button"
             onClick={() => setShowing((prev) => !prev)}
@@ -45,8 +45,9 @@ const Navbar = () => {
               onClick={() => setShowing(false)}
               key={navButton.name}
               id={navButton.name}
-              className={`nav-button ${navButton.link === pathname ? "active" : ""
-                }`}
+              className={`nav-button ${
+                navButton.link === pathname ? "active" : ""
+              }`}
             >
               <h4>{navButton.name}</h4>
             </Link>

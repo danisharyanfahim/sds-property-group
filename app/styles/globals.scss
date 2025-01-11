@@ -70,3 +70,7 @@ main {
   flex-direction: column;
   justify-content: space-between;
 }
+
+.phone-icon {
+  transform: scaleX(-100%);
+}

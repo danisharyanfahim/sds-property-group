@@ -29,7 +29,7 @@ const Footer = () => {
           </div>
           <div className="contact-info-item">
             <div className="icon">
-              <FaPhone />
+              <FaPhone className="phone-icon" />
             </div>
             <p className="info-text">Phone</p>
           </div>
