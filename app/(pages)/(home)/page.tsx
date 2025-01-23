@@ -29,7 +29,7 @@ const Home = () => {
           </h4>
         </div>
         <div className="media-section">
-          <ul id="key-services" className="slide">
+          <ul id="key-services" className="flex-cards ">
             <li className="service-card">
               Residenitial & Commercial Real Estate{" "}
               <button className="learn-more class-1">Learn More</button>
@@ -49,7 +49,10 @@ const Home = () => {
           </ul>
         </div>
       </section>
-      <section id="property-listings" className="stacked page-section">
+      <section
+        id="property-listings"
+        className="alternating-reverse page-section"
+      >
         <div className="info-section">
           <h2>Featured Properties for Sale</h2>
         </div>
@@ -97,6 +100,20 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <section id="news-insights" className="stacked page-section">
+        <div className="info-section">
+          <h2>Latest Insights & News</h2>
+          <p>
+            Share updates on real estate trends, investment tips, or company
+            milestones. Include a few blog post previews with "Read More" links.
+          </p>
+        </div>
+        <div className="media-section">
+          <div className="contact-form">
+            <p>UI4</p>
+          </div>
+        </div>
+      </section>
       <section id="call-to-action" className="alternating page-section">
         <div className="info-section">
           <h2>Looking for the perfect property? Let us help you find it!</h2>
@@ -105,17 +122,11 @@ const Home = () => {
           </button>
           <button className="learn-more class-1">Browse All Properties</button>
         </div>
-        <div className="media-section"></div>
-      </section>
-      <section id="insights" className="alternating-reverse page-section">
-        <div className="info-section">
-          <h2>Latest Insights & News</h2>
-          <p>
-            Share updates on real estate trends, investment tips, or company
-            milestones. Include a few blog post previews with "Read More" links.
-          </p>
+        <div className="media-section">
+          <div className="contact-form">
+            <p>Contact Form</p>
+          </div>
         </div>
-        <div className="media-section"></div>
       </section>
     </main>
   );

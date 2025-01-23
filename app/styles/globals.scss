@@ -89,10 +89,6 @@ main {
       padding: 0.5rem 1rem;
     }
 
-    > * :not(:last-child) {
-      margin-bottom: 0.5rem;
-    }
-
     .info-section,
     .media-section {
       display: flex;
@@ -101,13 +97,13 @@ main {
       padding: 1rem;
     }
 
-    &.alternating-reverse {
-      flex-direction: column-reverse;
-    }
-
     .info-section {
       background-color: rgba(0 0 0 / 0.145);
       align-items: flex-start;
+
+      > * :not(:last-child) {
+        margin-bottom: 0.5rem;
+      }
     }
 
     .media-section {
@@ -150,6 +146,37 @@ button.class-1 {
   color: white;
 }
 
+ul.flex-cards {
+  $min-card-width: 300px;
+  $gap: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $gap;
+  width: 100%;
+
+  li.service-card {
+    background-color: rgba(0, 0, 0, 0.1);
+    flex: 1 1 $min-card-width;
+    min-height: 240px;
+  }
+
+  @media (min-width: calc($min-card-width * 2 + $gap)) {
+    grid-template-columns: repeat(2, 1fr);
+
+    li.service-card {
+      min-height: 0;
+    }
+  }
+
+  @media (min-width: calc($min-card-width * 4 + $gap * 3)) {
+    grid-template-columns: repeat(4, 1fr);
+    li.service-card {
+      aspect-ratio: auto;
+      max-height: none;
+    }
+  }
+}
+
 @media (min-width: 768px) {
   main {
     header {
@@ -162,13 +189,35 @@ button.class-1 {
     section {
       &.alternating,
       &.alternating-reverse {
+        .info-section {
+          min-height: 480px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+      }
+
+      &.alternating {
         flex-direction: row;
-        align-items: center;
+      }
+
+      &.alternating-reverse {
+        flex-direction: row-reverse;
+
+        .info-section {
+          align-items: flex-end;
+        }
       }
 
       &.stacked {
         > * {
           align-items: center;
+        }
+
+        .media-section {
+          > :first-child {
+            width: 100%;
+          }
         }
       }
     }
