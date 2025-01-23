@@ -40,6 +40,11 @@ input {
   font-weight: 100;
 }
 
+ul li,
+ol li {
+  list-style-type: none;
+}
+
 input {
   outline: none;
   border: none;
@@ -55,12 +60,77 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: rgb(22, 22, 22);
+  color: white !important;
+
+  > :nth-child(odd):not(header) {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  header,
+  section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: left;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+    }
+
+    > * :not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+
+    .info-section,
+    .media-section {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 1rem;
+    }
+
+    &.alternating-reverse {
+      flex-direction: column-reverse;
+    }
+
+    .info-section {
+      background-color: rgba(0 0 0 / 0.145);
+      align-items: flex-start;
+    }
+
+    .media-section {
+      background-color: rgba(0, 0, 0, 0.3);
+
+      > :first-child {
+        background-color: rgb(197, 135, 0);
+        min-height: 480px;
+      }
+    }
+  }
+
+  header {
+    min-height: 480px;
+    justify-content: flex-end;
+    background-color: rgb(197, 135, 0);
+  }
 }
 
 .page-section {
+  width: 100%;
   padding-left: clamp(0rem, -38.571rem + 42.857vw, 30rem);
   padding-right: clamp(0rem, -38.571rem + 42.857vw, 30rem);
-  width: 100%;
 }
 
 .page {
@@ -68,9 +138,39 @@ main {
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .phone-icon {
   transform: scaleX(-100%);
+}
+
+button.class-1 {
+  background-color: rgb(36, 36, 36);
+  border-radius: 0.33rem;
+  color: white;
+}
+
+@media (min-width: 768px) {
+  main {
+    header {
+      flex-direction: row;
+      .info-section {
+        justify-content: center;
+      }
+    }
+
+    section {
+      &.alternating,
+      &.alternating-reverse {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      &.stacked {
+        > * {
+          align-items: center;
+        }
+      }
+    }
+  }
 }

@@ -28,7 +28,9 @@ const Navbar = () => {
             <FaPhone className="phone-icon" id="navbar-phone-icon" />
             123-456-7890
           </h4>
-          <button id="schedule-button">Book a Consultation</button>
+          <button id="schedule-button" className="class-1">
+            Book a Consultation
+          </button>
           <button
             className="nav-menu-button"
             onClick={() => setShowing((prev) => !prev)}

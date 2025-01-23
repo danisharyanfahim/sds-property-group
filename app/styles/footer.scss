@@ -77,11 +77,11 @@ footer {
   #news-letter {
     min-height: 9rem;
     .send-button {
-      color: white;
-      background: rgb(51, 51, 51);
       padding: 0.5rem;
       border-bottom-right-radius: 0.25rem;
       border-top-right-radius: 0.25rem;
+      border-bottom-left-radius: 0rem;
+      border-top-left-radius: 0rem;
     }
 
     input {
@@ -162,8 +162,14 @@ footer {
 
 @container top-section-container (width < 900px) {
   footer {
-    section#social-media-links .links-container {
-      justify-content: flex-start;
+    section {
+      &#social-media-links .links-container {
+        justify-content: flex-start;
+      }
+
+      &#news-letter .newsletter-container {
+        max-width: 320px;
+      }
     }
   }
 }
