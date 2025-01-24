@@ -1,3 +1,4 @@
+import Slider from "@/app/components/ui/slider";
 import React from "react";
 
 const Home = () => {
@@ -57,18 +58,21 @@ const Home = () => {
           <h2>Featured Properties for Sale</h2>
         </div>
         <div className="media-section">
-          <div className="gallery">
-            <div className="gallery-card">
-              <img src="" alt="property-image" />
-              <p id="location">Location</p>
-              <ul className="key-features">
-                <li className="key-feature">1</li>
-                <li className="key-feature">2</li>
-                <li className="key-feature">3</li>
-              </ul>
-              <button className="learn-more class-1">View Details</button>
-            </div>
-          </div>
+          <Slider>
+            {Array.from([1, 2, 3]).map((_, i) => (
+              <div className="property-slide slide">
+                <h4>Slide {i + 1}</h4>
+                <img src="" alt="property-image" />
+                <p id="location">Location</p>
+                <ul className="key-features">
+                  <li className="key-feature">1</li>
+                  <li className="key-feature">2</li>
+                  <li className="key-feature">3</li>
+                </ul>
+                <button className="learn-more class-1">View Details</button>
+              </div>
+            ))}
+          </Slider>
         </div>
       </section>
       <section id="why-choose-us" className="alternating page-section">
