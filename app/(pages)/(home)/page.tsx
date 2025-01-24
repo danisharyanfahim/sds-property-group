@@ -1,4 +1,5 @@
 import Slider from "@/app/components/ui/slider";
+import SlideShow from "@/app/components/ui/slideshow";
 import React from "react";
 
 const Home = () => {
@@ -58,7 +59,7 @@ const Home = () => {
           <h2>Featured Properties for Sale</h2>
         </div>
         <div className="media-section">
-          <Slider>
+          <SlideShow infinite={true}>
             {Array.from([1, 2, 3]).map((_, i) => (
               <div className="property-slide slide">
                 <h4>Slide {i + 1}</h4>
@@ -72,7 +73,7 @@ const Home = () => {
                 <button className="learn-more class-1">View Details</button>
               </div>
             ))}
-          </Slider>
+          </SlideShow>
         </div>
       </section>
       <section id="why-choose-us" className="alternating page-section">
@@ -84,12 +85,22 @@ const Home = () => {
           </h4>
         </div>
         <div className="media-section">
-          <ul className="differentiators">
-            <li className="key-feature">Personalized Services</li>
-            <li className="key-feature">End-to-End Real Estate Solutions</li>
-            <li className="key-feature">Expert Guidance for NRI Investors</li>
-            <li className="key-feature">Proven Track Record</li>
-          </ul>
+          <Slider infinite={true}>
+            {Array.from([1, 2, 3]).map((_, i) => (
+              <div className="choose-slide slide">
+                <ul className="differentiators">
+                  <li className="key-feature">Personalized Services</li>
+                  <li className="key-feature">
+                    End-to-End Real Estate Solutions
+                  </li>
+                  <li className="key-feature">
+                    Expert Guidance for NRI Investors
+                  </li>
+                  <li className="key-feature">Proven Track Record</li>
+                </ul>
+              </div>
+            ))}
+          </Slider>
         </div>
       </section>
       <section id="client-testimonials" className="stacked page-section">
