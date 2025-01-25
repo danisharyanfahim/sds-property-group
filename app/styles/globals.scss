@@ -147,36 +147,36 @@ button.class-1 {
   color: white;
 }
 
-ul.flex-cards {
-  $min-card-width: 300px;
-  $gap: 1rem;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: $gap;
-  width: 100%;
+// ul.flex-cards {
+//   $min-card-width: 300px;
+//   $gap: 1rem;
+//   display: grid;
+//   grid-template-columns: 1fr;
+//   gap: $gap;
+//   width: 100%;
 
-  li.service-card {
-    background-color: rgba(0, 0, 0, 0.1);
-    flex: 1 1 $min-card-width;
-    min-height: 240px;
-  }
+//   li.service-card {
+//     background-color: rgba(0, 0, 0, 0.1);
+//     flex: 1 1 $min-card-width;
+//     min-height: 240px;
+//   }
 
-  @media (min-width: calc($min-card-width * 2 + $gap)) {
-    grid-template-columns: repeat(2, 1fr);
+//   @media (min-width: calc($min-card-width * 2 + $gap)) {
+//     grid-template-columns: repeat(2, 1fr);
 
-    li.service-card {
-      min-height: 0;
-    }
-  }
+//     li.service-card {
+//       min-height: 0;
+//     }
+//   }
 
-  @media (min-width: calc($min-card-width * 4 + $gap * 3)) {
-    grid-template-columns: repeat(4, 1fr);
-    li.service-card {
-      aspect-ratio: auto;
-      max-height: none;
-    }
-  }
-}
+//   @media (min-width: calc($min-card-width * 4 + $gap * 3)) {
+//     grid-template-columns: repeat(4, 1fr);
+//     li.service-card {
+//       aspect-ratio: auto;
+//       max-height: none;
+//     }
+//   }
+// }
 
 @media (min-width: 768px) {
   main {
@@ -190,6 +190,10 @@ ul.flex-cards {
     section {
       &.alternating,
       &.alternating-reverse {
+        > * {
+          width: 50%;
+        }
+
         .info-section {
           min-height: 480px;
           display: flex;

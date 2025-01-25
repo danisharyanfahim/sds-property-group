@@ -72,11 +72,11 @@ const Slider = ({
   }, [children]);
 
   const scrollTo = (nextSlide: number) => {
-    const firstCardWidth = slideRefs.current[0]?.offsetWidth;
-    if (firstCardWidth === undefined) return;
+    const slideWidth = slideRefs.current[0]?.getBoundingClientRect().width;
+    if (slideWidth === undefined) return;
     setCurrentSlide(nextSlide);
     sliderRef.current?.scrollTo({
-      left: firstCardWidth * nextSlide,
+      left: Math.ceil(slideWidth * nextSlide),
       behavior: scrollBehavior.current,
     });
   };
@@ -105,7 +105,6 @@ const Slider = ({
       initialSlide = slidesBefore + initialSlide;
     }
     scrollTo(initialSlide);
-    return initialSlide;
   };
 
   const handleMouseDown = () => {
@@ -122,10 +121,21 @@ const Slider = ({
         setCurrentSlide(newSlidePos);
       }
 
-      if (
-        sliderRef.current?.offsetWidth * currentSlide ===
-        sliderRef.current?.scrollLeft
-      ) {
+      /* 
+      I will have to tinker with this to make it perfect, because getBoundingClientRect returns a floating point
+      value but offsetWidth returns an integer. and left return integer values which would slightly mess up the
+      calculations on screens with odd pixel widths. There is still a bug with this not scrolling properly for the timing*/
+
+      const currentPosition =
+        newSlidePos !== slides.length - 1
+          ? Math.ceil(
+              sliderRef.current?.getBoundingClientRect().width * currentSlide
+            )
+          : Math.ceil(
+              sliderRef.current?.getBoundingClientRect().width * currentSlide
+            ) - 1;
+
+      if (currentPosition === sliderRef.current?.scrollLeft) {
         if (!mouseDown.current) {
           setScrolling(false);
         }
@@ -147,7 +157,7 @@ const Slider = ({
     }
   };
 
-  //Sets the slider position to the scroll position of the initial card, regardless of whether or not the carousel wraps
+  //Sets the slider position to the scroll position of the initial slide, regardless of whether or not the slider wraps
   useLayoutEffect(() => {
     setFirstSlide(initialSlide ?? 0, infinite, slidesBefore);
   }, []);

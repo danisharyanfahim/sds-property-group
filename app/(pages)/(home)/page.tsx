@@ -1,5 +1,6 @@
 import Slider from "@/app/components/ui/slider";
 import SlideShow from "@/app/components/ui/slideshow";
+import Ticker from "@/app/components/ui/ticker";
 import React from "react";
 
 const Home = () => {
@@ -86,7 +87,7 @@ const Home = () => {
         </div>
         <div className="media-section">
           <Slider infinite={true}>
-            {Array.from([1, 2, 3]).map((_, i) => (
+            {Array.from([1, 2, 3, 4, 5]).map((_, i) => (
               <div className="choose-slide slide">
                 <ul className="differentiators">
                   <li className="key-feature">Personalized Services</li>
@@ -108,11 +109,13 @@ const Home = () => {
           <h2>What Our Clients Say</h2>
         </div>
         <div className="media-section">
-          <div className="carousel">
-            <div className="client-review-card">Client Review 1</div>
-            <div className="client-review-card">Client Review 2</div>
-            <div className="client-review-card">Client Review 3</div>
-          </div>
+          <Ticker infinite={true}>
+            {Array.from([1, 2, 3, 4, 5]).map((_, i) => (
+              <div className="property-slide slide">
+                <h4>Client Review {i + 1}</h4>
+              </div>
+            ))}
+          </Ticker>
         </div>
       </section>
       <section id="news-insights" className="stacked page-section">

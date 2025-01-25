@@ -1,5 +1,6 @@
 .slider,
-.slide-show {
+.slide-show,
+.ticker {
   height: 100%;
   width: 100%;
   .play-button-container,
@@ -84,26 +85,42 @@
   }
 }
 
+.ticker .slides-container,
 .slider .slides-container {
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-basis: 100%;
   overflow-x: scroll;
   scrollbar-width: none;
-  scroll-snap-type: x mandatory;
   -ms-overflow-style: none;
   &::-webkit-scrollbar {
     display: none;
     -webkit-appearance: none;
     appearance: none;
   }
+}
 
-  display: flex;
-  flex-basis: 100%;
+.slider .slides-container {
+  scroll-snap-type: x mandatory;
 
   .slide-container {
+    scroll-snap-align: start;
     flex-basis: inherit;
     flex-shrink: 0;
-    scroll-snap-align: start;
+  }
+}
+
+.ticker {
+  .slides-container {
+    .slide-container {
+      // padding: 1rem;
+      width: 480px;
+
+      > :first-child {
+        background-color: rgba(0 0 0 / 0.2);
+      }
+    }
   }
 }
 
