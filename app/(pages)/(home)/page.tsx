@@ -1,3 +1,4 @@
+import Carousel from "@/app/components/ui/carousel";
 import Slider from "@/app/components/ui/slider";
 import SlideShow from "@/app/components/ui/slideshow";
 import Ticker from "@/app/components/ui/ticker";
@@ -32,20 +33,20 @@ const Home = () => {
           </h4>
         </div>
         <div className="media-section">
-          <ul id="key-services" className="flex-cards ">
-            <li className="service-card">
-              Residenitial & Commercial Real Estate{" "}
+          <ul id="key-services" className="flex-cards">
+            <li className="service-card card">
+              Residential & Commercial Real Estate{" "}
               <button className="learn-more class-1">Learn More</button>
             </li>
-            <li className="service-card">
+            <li className="service-card card">
               Investments{" "}
               <button className="learn-more class-1">Learn More</button>
             </li>
-            <li className="service-card">
+            <li className="service-card card">
               Colony Development{" "}
               <button className="learn-more class-1">Learn More</button>
             </li>
-            <li className="service-card">
+            <li className="service-card card">
               Mortgage Assistance{" "}
               <button className="learn-more class-1">Learn More</button>
             </li>
@@ -111,7 +112,7 @@ const Home = () => {
         <div className="media-section">
           <Ticker infinite={true}>
             {Array.from([1, 2, 3, 4, 5]).map((_, i) => (
-              <div className="property-slide slide">
+              <div className="review-slide slide">
                 <h4>Client Review {i + 1}</h4>
               </div>
             ))}
@@ -127,9 +128,13 @@ const Home = () => {
           </p>
         </div>
         <div className="media-section">
-          <div className="contact-form">
-            <p>UI4</p>
-          </div>
+          <Carousel infinite={true}>
+            {Array.from([1, 2, 3, 4, 5]).map((_, i) => (
+              <div className="news-card card">
+                <h4>News Article {i + 1}</h4>
+              </div>
+            ))}
+          </Carousel>
         </div>
       </section>
       <section id="call-to-action" className="alternating page-section">

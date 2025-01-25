@@ -1,6 +1,7 @@
 .slider,
 .slide-show,
-.ticker {
+.ticker,
+.carousel {
   height: 100%;
   width: 100%;
   .play-button-container,
@@ -75,22 +76,11 @@
       }
     }
   }
-
-  .slide {
-    width: inherit;
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
-    min-height: 480px;
-  }
 }
 
+.carousel .cards-container,
 .ticker .slides-container,
 .slider .slides-container {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-basis: 100%;
   overflow-x: scroll;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -101,14 +91,27 @@
   }
 }
 
+.ticker .slides-container,
 .slider .slides-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-basis: 100%;
+}
+
+.slider .slides-container,
+.carousel .cards-container {
   scroll-snap-type: x mandatory;
 
-  .slide-container {
+  .slide-container,
+  .card-container {
     scroll-snap-align: start;
-    flex-basis: inherit;
-    flex-shrink: 0;
   }
+}
+
+.slider .slides-container .slide-container {
+  flex-basis: inherit;
+  flex-shrink: 0;
 }
 
 .ticker {
@@ -152,6 +155,76 @@
   .slide {
     background-color: goldenrod;
   }
+}
+
+.carousel {
+  .cards-container {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc(100% / 3); // 3 columns by default
+    grid-gap: var(--grid-gap);
+    touch-action: none;
+    // scroll-padding: 0 16px; //Use this feature later on to make sure the caorusel aligns perfectly, even with padding and margins
+    // padding-top: 1rem;
+    // padding-bottom: 1rem;
+
+    @media (max-width: 1280px) {
+      grid-auto-columns: calc(100% / 2);
+    }
+
+    @media (max-width: 640px) {
+      grid-auto-columns: 100%;
+    }
+  }
+
+  .card-container .card {
+  }
+}
+
+ul.flex-cards {
+  $min-card-width: 300px;
+  $gap: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $gap;
+  width: 100%;
+
+  li.service-card {
+    background-color: rgba(0, 0, 0, 0.1);
+    flex: 1 1 $min-card-width;
+    min-height: 240px;
+  }
+
+  @media (min-width: calc($min-card-width * 2 + $gap)) {
+    grid-template-columns: repeat(2, 1fr);
+
+    li.service-card {
+      min-height: 0;
+    }
+  }
+
+  @media (min-width: calc($min-card-width * 4 + $gap * 3)) {
+    grid-template-columns: repeat(4, 1fr);
+    li.service-card {
+      aspect-ratio: auto;
+      max-height: none;
+    }
+  }
+}
+
+.slide,
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: inherit;
+  flex-direction: column;
+  min-height: 480px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.153);
 }
 
 @keyframes fadeIn {
