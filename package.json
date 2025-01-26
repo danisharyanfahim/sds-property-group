@@ -10,7 +10,10 @@
   },
   "dependencies": {
     "@aws-amplify/ui-react": "^6.5.5",
+    "@emailjs/browser": "^4.4.1",
     "aws-amplify": "^6.6.6",
+    "countries-list": "^3.1.1",
+    "emailjs": "^4.0.3",
     "next": "14.2.10",
     "react": "^18",
     "react-dom": "^18",

@@ -1,4 +1,5 @@
 import Carousel from "@/app/components/ui/carousel";
+import ContactForm from "@/app/components/ui/contact-form";
 import Slider from "@/app/components/ui/slider";
 import SlideShow from "@/app/components/ui/slideshow";
 import Ticker from "@/app/components/ui/ticker";
@@ -146,9 +147,7 @@ const Home = () => {
           <button className="learn-more class-1">Browse All Properties</button>
         </div>
         <div className="media-section">
-          <div className="contact-form">
-            <p>Contact Form</p>
-          </div>
+          <ContactForm />
         </div>
       </section>
     </main>
