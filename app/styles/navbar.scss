@@ -97,12 +97,12 @@
 }
 
 @media (max-width: 500px) {
-  #phone-number {
+  #navbar #phone-number {
     display: none;
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 350px) {
   #schedule-button {
     display: none;
   }

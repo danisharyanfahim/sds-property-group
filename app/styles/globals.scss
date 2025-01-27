@@ -31,6 +31,8 @@ a {
 small,
 a,
 p,
+select,
+textarea,
 h1,
 h2,
 h3,
@@ -39,7 +41,24 @@ h5,
 h6,
 input {
   font-family: Roboto, sans-serif;
+}
+
+small,
+a,
+p,
+input,
+select,
+textarea {
   font-weight: 100;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 900;
 }
 
 ul li,
@@ -47,7 +66,9 @@ ol li {
   list-style-type: none;
 }
 
-input {
+input,
+select,
+textarea {
   outline: none;
   border: none;
   -webkit-appearance: none;
@@ -64,10 +85,6 @@ main {
   flex-direction: column;
   background-color: rgb(22, 22, 22);
   color: white !important;
-
-  > :nth-child(odd):not(header) {
-    background-color: rgba(0, 0, 0, 0.1);
-  }
 
   header,
   section {
@@ -100,8 +117,8 @@ main {
     }
 
     .info-section {
-      background-color: rgba(0 0 0 / 0.145);
       align-items: flex-start;
+      gap: 1rem;
 
       > * :not(:last-child) {
         margin-bottom: 0.5rem;
@@ -109,20 +126,31 @@ main {
     }
 
     .media-section {
-      background-color: rgba(0, 0, 0, 0.3);
-
       > :first-child {
-        background-color: rgb(197, 135, 0);
-        min-height: 480px;
+        // background-color: rgb(197, 135, 0);
+        // min-height: 480px;
       }
     }
   }
 
   header {
-    min-height: 480px;
+    min-height: 560px;
     justify-content: flex-end;
-    background-color: rgb(197, 135, 0);
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.85),
+        rgba(0, 0, 0, 0.75)
+      ),
+      url("/images/background-images/real-estate-background-2.jpg");
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: cover;
   }
+}
+
+.page-section:not(#navbar) {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 .page-section {
@@ -148,15 +176,58 @@ button.class-1 {
   color: white;
 }
 
+button.class-2 {
+  border: 3px solid var(--gold-light);
+  color: var(--gold-light);
+}
+
+#testimonials {
+  min-height: 560px;
+  background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.85),
+      rgba(0, 0, 0, 0.85)
+    ),
+    url("/images/background-images/real-estate-background-1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  -webkit-filter: grayscale(50%);
+  filter: grayscale(50%);
+}
+
+#call-to-action {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  min-height: 1000px;
+  background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.85),
+      rgba(0, 0, 0, 0.85)
+    ),
+    url("/images/background-images/real-estate-background-3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  -webkit-filter: grayscale(50%);
+  filter: grayscale(50%);
+
+  .info-section {
+    background: linear-gradient(135deg, rgba(20, 20, 20), rgba(10, 10, 10));
+  }
+
+  .media-section {
+    background-color: rgba(0, 0, 0, 0.45);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 @media (min-width: 768px) {
   main {
-    header {
-      flex-direction: row;
-      .info-section {
-        justify-content: center;
-      }
-    }
-
     section {
       &.alternating,
       &.alternating-reverse {
@@ -195,6 +266,29 @@ button.class-1 {
           }
         }
       }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  main header {
+    flex-direction: row;
+    .info-section {
+      justify-content: center;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.55);
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      height: inherit;
+      min-height: inherit;
+      width: 80%;
+      top: 0rem;
+      left: -30%;
+      transform: skewX(-22.5deg);
     }
   }
 }

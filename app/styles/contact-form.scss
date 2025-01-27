@@ -5,9 +5,10 @@
     min-height: 480px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-auto-columns: 50% 50%;
 
     input,
+    select,
+    textarea,
     .button-container {
       width: 100%;
     }
@@ -20,6 +21,7 @@
 
     > * {
       grid-column: span 2;
+      padding: 1rem;
     }
   }
 }

@@ -11,10 +11,10 @@ const Home = () => {
       <header id="first-impression" className="page-section">
         <div className="info-section">
           <h2>Transforming Real Estate Dreams into Reality</h2>
-          <button id="explore" className="learn-more class-1">
+          <button id="explore" className="learn-more class-2">
             Explore Properties
           </button>
-          <button id="learn" className="learn-more class-1">
+          <button id="learn" className="learn-more class-2">
             Learn About Our Services
           </button>
         </div>
@@ -35,19 +35,43 @@ const Home = () => {
         </div>
         <div className="media-section">
           <ul id="key-services" className="flex-cards">
-            <li className="service-card card">
+            <li
+              className="service-card card"
+              style={{
+                backgroundImage:
+                  "linear-gradient(135deg, var(--card-color-1), var(--card-color-2)), url('/images/background-images/card-background-image-3.jpg')",
+              }}
+            >
               Residential & Commercial Real Estate{" "}
               <button className="learn-more class-1">Learn More</button>
             </li>
-            <li className="service-card card">
+            <li
+              className="service-card card"
+              style={{
+                backgroundImage:
+                  "linear-gradient(135deg, var(--card-color-1), var(--card-color-2)), url('/images/background-images/card-background-image-4.jpg')",
+              }}
+            >
               Investments{" "}
               <button className="learn-more class-1">Learn More</button>
             </li>
-            <li className="service-card card">
+            <li
+              className="service-card card"
+              style={{
+                backgroundImage:
+                  "linear-gradient(135deg, var(--card-color-1), var(--card-color-2)), url('/images/background-images/card-background-image-2.jpg')",
+              }}
+            >
               Colony Development{" "}
               <button className="learn-more class-1">Learn More</button>
             </li>
-            <li className="service-card card">
+            <li
+              className="service-card card"
+              style={{
+                backgroundImage:
+                  "linear-gradient(135deg, var(--card-color-1), var(--card-color-2)), url('/images/background-images/card-background-image-1.jpg')",
+              }}
+            >
               Mortgage Assistance{" "}
               <button className="learn-more class-1">Learn More</button>
             </li>
@@ -64,7 +88,14 @@ const Home = () => {
         <div className="media-section">
           <SlideShow infinite={true}>
             {Array.from([1, 2, 3]).map((_, i) => (
-              <div className="property-slide slide">
+              <div
+                className="property-slide slide"
+                style={{
+                  backgroundImage: `linear-gradient(135deg, var(--card-color-1), var(--card-color-2)), url('/images/background-images/slide-background-image-${
+                    i + 1
+                  }.jpg')`,
+                }}
+              >
                 <h4>Slide {i + 1}</h4>
                 <img src="" alt="property-image" />
                 <p id="location">Location</p>
@@ -89,31 +120,53 @@ const Home = () => {
         </div>
         <div className="media-section">
           <Slider infinite={true}>
-            {Array.from([1, 2, 3, 4, 5]).map((_, i) => (
-              <div className="choose-slide slide">
-                <ul className="differentiators">
-                  <li className="key-feature">Personalized Services</li>
-                  <li className="key-feature">
-                    End-to-End Real Estate Solutions
-                  </li>
-                  <li className="key-feature">
-                    Expert Guidance for NRI Investors
-                  </li>
-                  <li className="key-feature">Proven Track Record</li>
-                </ul>
-              </div>
-            ))}
+            <div
+              className="choose-slide slide"
+              style={{
+                backgroundImage:
+                  "linear-gradient(135deg, var(--card-color-1), var(--card-color-2)), url('/images/background-images/slide-background-image-4.jpg')",
+              }}
+            >
+              <h4>Personalized Services</h4>
+            </div>
+            <div
+              className="choose-slide slide"
+              style={{
+                backgroundImage:
+                  "linear-gradient(135deg, var(--card-color-1), var(--card-color-2)), url('/images/background-images/slide-background-image-5.jpg')",
+              }}
+            >
+              <h4>End-to-End Real Estate Solutions</h4>
+            </div>
+            <div
+              className="choose-slide slide"
+              style={{
+                backgroundImage:
+                  "linear-gradient(135deg, var(--card-color-1), var(--card-color-2)), url('/images/background-images/slide-background-image-6.jpg')",
+              }}
+            >
+              <h4>Expert Guidance for NRI Investors</h4>
+            </div>
+            <div
+              className="choose-slide slide"
+              style={{
+                backgroundImage:
+                  "linear-gradient(135deg, var(--card-color-1), var(--card-color-2)), url('/images/background-images/slide-background-image-7.jpg')",
+              }}
+            >
+              <h4>Proven Track Record</h4>
+            </div>
           </Slider>
         </div>
       </section>
-      <section id="client-testimonials" className="stacked page-section">
+      <section id="testimonials" className="stacked page-section">
         <div className="info-section">
           <h2>What Our Clients Say</h2>
         </div>
         <div className="media-section">
           <Ticker infinite={true}>
             {Array.from([1, 2, 3, 4, 5]).map((_, i) => (
-              <div className="review-slide slide">
+              <div className="testimonial-slide slide">
                 <h4>Client Review {i + 1}</h4>
               </div>
             ))}
@@ -131,7 +184,14 @@ const Home = () => {
         <div className="media-section">
           <Carousel infinite={true}>
             {Array.from([1, 2, 3, 4, 5]).map((_, i) => (
-              <div className="news-card card">
+              <div
+                className="news-card card"
+                style={{
+                  backgroundImage: `linear-gradient(135deg, var(--card-color-1), var(--card-color-2)), url('/images/background-images/slide-background-image-${
+                    7 + i
+                  }.jpg')`,
+                }}
+              >
                 <h4>News Article {i + 1}</h4>
               </div>
             ))}
