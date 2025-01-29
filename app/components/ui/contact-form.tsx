@@ -196,7 +196,7 @@ const ContactForm = () => {
             </div>
           </section> */}
         <section className="button-container">
-          <button className="send class-1" type="submit">
+          <button className="send gold-fill" type="submit">
             <p>Send</p>
           </button>
         </section>

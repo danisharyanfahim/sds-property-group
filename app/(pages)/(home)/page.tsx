@@ -3,31 +3,50 @@ import ContactForm from "@/app/components/ui/contact-form";
 import Slider from "@/app/components/ui/slider";
 import SlideShow from "@/app/components/ui/slideshow";
 import Ticker from "@/app/components/ui/ticker";
+import { list } from "aws-amplify/storage";
 import React from "react";
+import { BiSolidBuildingHouse } from "react-icons/bi";
+import { GiBanknote } from "react-icons/gi";
+import { GrCatalog } from "react-icons/gr";
+import { TfiRulerAlt2 } from "react-icons/tfi";
+import { VscGraphLine } from "react-icons/vsc";
+
+const servicesCardData: { title: string; icon: React.ReactNode }[] = [
+  { title: "Colony Development", icon: <TfiRulerAlt2 /> },
+  { title: "Mortgage Assistance", icon: <GiBanknote /> },
+  { title: "Investments", icon: <VscGraphLine /> },
+  {
+    title: "Residential & Commercial Real Estate",
+    icon: <BiSolidBuildingHouse />,
+  },
+];
 
 const Home = () => {
   return (
     <main id="home">
       <header id="first-impression" className="page-section">
         <div className="info-section">
-          <h2>Transforming Real Estate Dreams into Reality</h2>
-          <button id="explore" className="learn-more class-2">
-            Explore Properties
+          <h1>
+            Transforming <span className="gold-text">Real Estate</span> Dreams
+            into Reality
+          </h1>
+          <button id="learn" className="learn-more gold-outline">
+            <p>Learn About Our Services</p>
           </button>
-          <button id="learn" className="learn-more class-2">
-            Learn About Our Services
+          <button id="explore" className="learn-more gold-outline">
+            <p>Explore Properties</p>
           </button>
         </div>
-        {/* <div className="media-section">
-          <div>
-            Background Image/Video: High-quality visuals of luxury homes,
-            commercial spaces, or vibrant developments
-          </div>
-        </div> */}
+        <div className="media-section">
+          <div className="logo" />
+        </div>
       </header>
       <section id="featured-services" className="stacked page-section">
         <div className="info-section">
-          <h2>Explore Our Services</h2>
+          <h2 className="icon-title">
+            <GrCatalog className="icon" />
+            Explore Our Services
+          </h2>
           <h4>
             A short intro about SDS Property Group’s commitment to excellence in
             real estate
@@ -35,46 +54,27 @@ const Home = () => {
         </div>
         <div className="media-section">
           <ul id="key-services" className="flex-cards">
-            <li
-              className="service-card card"
-              style={{
-                backgroundImage:
-                  "linear-gradient(135deg, var(--card-color-1), var(--card-color-2)), url('/images/background-images/card-background-image-3.jpg')",
-              }}
-            >
-              Residential & Commercial Real Estate{" "}
-              <button className="learn-more class-1">Learn More</button>
-            </li>
-            <li
-              className="service-card card"
-              style={{
-                backgroundImage:
-                  "linear-gradient(135deg, var(--card-color-1), var(--card-color-2)), url('/images/background-images/card-background-image-4.jpg')",
-              }}
-            >
-              Investments{" "}
-              <button className="learn-more class-1">Learn More</button>
-            </li>
-            <li
-              className="service-card card"
-              style={{
-                backgroundImage:
-                  "linear-gradient(135deg, var(--card-color-1), var(--card-color-2)), url('/images/background-images/card-background-image-2.jpg')",
-              }}
-            >
-              Colony Development{" "}
-              <button className="learn-more class-1">Learn More</button>
-            </li>
-            <li
-              className="service-card card"
-              style={{
-                backgroundImage:
-                  "linear-gradient(135deg, var(--card-color-1), var(--card-color-2)), url('/images/background-images/card-background-image-1.jpg')",
-              }}
-            >
-              Mortgage Assistance{" "}
-              <button className="learn-more class-1">Learn More</button>
-            </li>
+            {servicesCardData.map((serviceCard, index) => (
+              <li
+                className="service-card card"
+                style={{
+                  backgroundImage: `linear-gradient(135deg, var(--card-color-1), var(--card-color-2)), url('/images/background-images/card-background-image-${
+                    index + 1
+                  }.jpg')`,
+                }}
+              >
+                <div className="content-container">
+                  <div className="icon">{serviceCard.icon}</div>
+                  <div className="text-container">
+                    <h5>{serviceCard.title}</h5>
+                  </div>
+                  <button className="slide-button white-outline">
+                    <p>Learn More</p>
+                  </button>
+                </div>
+                <div className="background-icon">{serviceCard.icon}</div>
+              </li>
+            ))}
           </ul>
         </div>
       </section>
@@ -86,25 +86,31 @@ const Home = () => {
           <h2>Featured Properties for Sale</h2>
         </div>
         <div className="media-section">
-          <SlideShow infinite={true}>
+          <SlideShow infinite={true} delay={3000}>
             {Array.from([1, 2, 3]).map((_, i) => (
               <div
                 className="property-slide slide"
                 style={{
-                  backgroundImage: `linear-gradient(135deg, var(--card-color-1), var(--card-color-2)), url('/images/background-images/slide-background-image-${
+                  backgroundImage: `linear-gradient(135deg, var(--card-color-3), var(--card-color-4)), url('/images/background-images/slide-background-image-${
                     i + 1
                   }.jpg')`,
                 }}
               >
-                <h4>Slide {i + 1}</h4>
-                <img src="" alt="property-image" />
-                <p id="location">Location</p>
+                <h4 id="location">Location {i + 1}</h4>
                 <ul className="key-features">
-                  <li className="key-feature">1</li>
-                  <li className="key-feature">2</li>
-                  <li className="key-feature">3</li>
+                  <li className="key-feature">
+                    <p>Key Feature 1</p>
+                  </li>
+                  <li className="key-feature">
+                    <p>Key Feature 2</p>
+                  </li>
+                  <li className="key-feature">
+                    <p>Key Feature 3</p>
+                  </li>
                 </ul>
-                <button className="learn-more class-1">View Details</button>
+                <button className="slide-button dark-fill">
+                  <p>View Details</p>
+                </button>
               </div>
             ))}
           </SlideShow>
@@ -112,14 +118,14 @@ const Home = () => {
       </section>
       <section id="why-choose-us" className="alternating page-section">
         <div className="info-section">
-          <h2>Why SDS Property Group?</h2>
+          <h2>Why Choose Us?</h2>
           <h4>
             A few sentences on expertise, market insights, and tailored
             solutions
           </h4>
         </div>
         <div className="media-section">
-          <Slider infinite={true}>
+          <Slider infinite={true} delay={3000}>
             <div
               className="choose-slide slide"
               style={{
@@ -164,10 +170,14 @@ const Home = () => {
           <h2>What Our Clients Say</h2>
         </div>
         <div className="media-section">
-          <Ticker infinite={true}>
+          <Ticker infinite={true} showPlayButton={false} speed={0.1}>
             {Array.from([1, 2, 3, 4, 5]).map((_, i) => (
               <div className="testimonial-slide slide">
-                <h4>Client Review {i + 1}</h4>
+                <div className="content-container">
+                  <div className="content">
+                    <h4>Client Review {i + 1}</h4>
+                  </div>
+                </div>
               </div>
             ))}
           </Ticker>
@@ -182,7 +192,7 @@ const Home = () => {
           </p>
         </div>
         <div className="media-section">
-          <Carousel infinite={true}>
+          <Carousel infinite={true} showPositionIndicator={false} delay={3000}>
             {Array.from([1, 2, 3, 4, 5]).map((_, i) => (
               <div
                 className="news-card card"
@@ -201,10 +211,12 @@ const Home = () => {
       <section id="call-to-action" className="alternating page-section">
         <div className="info-section">
           <h2>Looking for the perfect property? Let us help you find it!</h2>
-          <button className="learn-more class-1">
+          <button className="learn-more gold-outline">
             Schedule a Consultation
           </button>
-          <button className="learn-more class-1">Browse All Properties</button>
+          <button className="learn-more gold-outline">
+            Browse All Properties
+          </button>
         </div>
         <div className="media-section">
           <ContactForm />

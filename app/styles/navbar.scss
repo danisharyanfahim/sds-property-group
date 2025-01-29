@@ -15,7 +15,6 @@
   .logo-button,
   .nav-menu-button {
     height: 100%;
-    aspect-ratio: 1 / 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,11 +25,30 @@
     margin: 0rem 0.5rem;
   }
 
+  .logo-button {
+    margin-left: 1rem;
+    aspect-ratio: 2 / 1;
+    display: flex;
+    gap: 1rem;
+
+    p {
+      min-width: 100px;
+      font-weight: 400;
+      color: var(--grey-dark);
+    }
+
+    img {
+      height: 80%;
+      width: auto;
+    }
+  }
+
   .nav-menu-button {
     font-size: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    aspect-ratio: 1 / 1;
   }
 
   .right-side {
@@ -45,6 +63,7 @@
     padding: 0rem 1rem;
     display: flex;
     gap: 0.5rem;
+    color: var(--grey-dark);
 
     #navbar-phone-icon {
       top: 2px;
@@ -88,10 +107,20 @@
       &.active {
         h4 {
           padding-right: 1rem;
-          border-right: 4px solid white;
+          border-right: 4px solid var(--gold-light);
           transition: all 0.2s;
         }
       }
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  #navbar .logo-button {
+    justify-content: flex-start;
+    aspect-ratio: 1 / 1;
+    p {
+      display: none;
     }
   }
 }

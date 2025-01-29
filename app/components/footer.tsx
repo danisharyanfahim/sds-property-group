@@ -50,7 +50,7 @@ const Footer = () => {
           <h4 className="section-title">Remain Updated</h4>
           <form action="" className="newsletter-container">
             <input type="email" name="email" className="email-field" />
-            <button className="send-button class-1" type="submit">
+            <button className="send-button gold-fill" type="submit">
               <p>Subscribe</p>
             </button>
           </form>

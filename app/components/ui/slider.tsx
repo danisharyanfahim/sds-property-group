@@ -7,8 +7,8 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { FaChevronLeft, FaChevronRight, FaPlay } from "react-icons/fa6";
-import { GiPauseButton } from "react-icons/gi";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import { IoMdPlay, IoMdPause } from "react-icons/io";
 
 const Slider = ({
   children,
@@ -218,7 +218,7 @@ const Slider = ({
               className="play-button"
               onClick={() => setIsPlaying(!isPlaying)}
             >
-              <h3>{isPlaying ? <GiPauseButton /> : <FaPlay />}</h3>
+              <h3>{isPlaying ? <IoMdPause /> : <IoMdPlay />}</h3>
             </button>
           </div>
         )}
@@ -243,7 +243,7 @@ const Slider = ({
                 className="prev-button control-button"
                 onClick={() => toggleSlide(currentSlide - 1)}
               >
-                <FaChevronLeft />
+                <MdKeyboardArrowLeft />
               </button>
             </div>
             <div className="button-container">
@@ -251,7 +251,7 @@ const Slider = ({
                 className="next-button control-button"
                 onClick={() => toggleSlide(currentSlide + 1)}
               >
-                <FaChevronRight />
+                <MdKeyboardArrowRight />
               </button>
             </div>
           </div>

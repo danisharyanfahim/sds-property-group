@@ -1,7 +1,13 @@
 :root {
   --navbar-height: 5rem;
-  --card-color-1: rgba(255, 255, 255, 0.65);
-  --card-color-2: rgba(255, 255, 255, 0.75);
+  --card-color-1: rgba(0, 0, 0, 0.85);
+  --card-color-2: rgba(0, 0, 0, 0.95);
+  --card-color-3: rgba(255, 255, 255, 0.85);
+  --card-color-4: rgba(255, 255, 255, 0.95);
   --gold-light: rgb(255, 187, 0);
-  --gold-dark: rgb(216, 148, 0);
+  --gold-dark: rgb(207, 142, 0);
+  --grey-light: rgb(202, 202, 202);
+  --grey-medium: rgb(124, 124, 124);
+  --grey-dark: rgb(49, 49, 49);
+  --grey-extra-dark: rgb(26, 26, 26);
 }

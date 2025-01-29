@@ -21,6 +21,7 @@ button {
   background-color: transparent;
   border: 0px solid transparent;
   cursor: pointer;
+  color: inherit;
 }
 
 a {
@@ -49,16 +50,36 @@ p,
 input,
 select,
 textarea {
-  font-weight: 100;
+  font-weight: 300;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
+h1 {
+  font-weight: 600;
+  font-size: 2.15rem;
+  text-wrap: balance;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 1.85rem;
+  text-wrap: balance;
+}
+h3 {
+  font-weight: 450;
+  text-wrap: balance;
+}
+h4 {
+  font-weight: 400;
+  text-wrap: balance;
+  font-size: 1.33rem;
+}
+h5 {
+  font-weight: 400;
+  text-wrap: balance;
+}
 h6 {
-  font-weight: 900;
+  font-weight: 400;
+  text-wrap: balance;
 }
 
 ul li,
@@ -105,7 +126,11 @@ main {
     }
 
     button {
-      padding: 0.5rem 1rem;
+      padding: 0.75rem 1rem;
+      p {
+        font-size: 1.15rem;
+        font-weight: 400;
+      }
     }
 
     .info-section,
@@ -114,6 +139,7 @@ main {
       flex-direction: column;
       width: 100%;
       padding: 1rem;
+      z-index: 1;
     }
 
     .info-section {
@@ -134,8 +160,9 @@ main {
   }
 
   header {
+    flex-direction: column-reverse;
     min-height: 560px;
-    justify-content: flex-end;
+    justify-content: flex-start;
     background: linear-gradient(
         to right,
         rgba(0, 0, 0, 0.85),
@@ -145,12 +172,50 @@ main {
     background-repeat: no-repeat;
     background-position: center right;
     background-size: cover;
+
+    .info-section {
+      margin-bottom: 1rem;
+
+      .gold-text {
+        background: linear-gradient(
+          to bottom,
+          var(--gold-dark),
+          var(--gold-light)
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    .media-section {
+      flex-grow: 1;
+      padding: 0rem;
+
+      .logo {
+        height: 90%;
+        width: 90%;
+        position: absolute;
+        -webkit-mask-image: url("/images/sds-logo.svg");
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-size: contain;
+        -webkit-mask-position: center;
+        mask-image: url("/images/sds-logo.svg");
+        mask-repeat: no-repeat;
+        mask-size: contain;
+        mask-position: center;
+        background-color: white;
+        margin: 1rem;
+        top: 3rem;
+      }
+    }
   }
 }
 
-.page-section:not(#navbar) {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+section.page-section {
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  overflow: hidden;
 }
 
 .page-section {
@@ -170,15 +235,67 @@ main {
   transform: scaleX(-100%);
 }
 
-button.class-1 {
-  background-color: rgb(36, 36, 36);
-  border-radius: 0.33rem;
+button.white-outline {
+  border: 3px solid white;
+  background-color: rgba(0, 0, 0, 0.356);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   color: white;
 }
 
-button.class-2 {
+.icon-title {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+button.dark-fill {
+  background-color: rgb(36, 36, 36);
+  color: white;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+button.gold-outline {
   border: 3px solid var(--gold-light);
   color: var(--gold-light);
+  background-color: rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+button.gold-fill {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+  color: black;
+  border-radius: 0.12rem;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+#featured-services {
+  color: black;
+  background-color: white;
+  &::before {
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    height: 100%;
+    width: 100%;
+    content: "";
+    background: linear-gradient(
+        100deg,
+        rgb(250, 250, 250, 0.951),
+        rgb(250, 250, 250, 0.9),
+        rgb(250, 250, 250, 0.2)
+      ),
+      url("/images/background-images/slide-background-image-25.avif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    mask-image: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.349) 10%);
+  }
 }
 
 #testimonials {
@@ -209,11 +326,14 @@ button.class-2 {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  -webkit-filter: grayscale(50%);
-  filter: grayscale(50%);
+  // -webkit-filter: grayscale(50%);
+  // filter: grayscale(50%);
 
   .info-section {
     background: linear-gradient(135deg, rgba(20, 20, 20), rgba(10, 10, 10));
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.39);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   .media-section {
@@ -223,7 +343,39 @@ button.class-2 {
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.39);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
+}
+
+#property-listings {
+  background: linear-gradient(135deg, var(--card-color-1), var(--card-color-2)),
+    url("/images/background-images/slide-background-image-9.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#why-choose-us {
+  color: black;
+  background: linear-gradient(
+      100deg,
+      rgb(250, 250, 250, 0.951),
+      rgb(250, 250, 250, 0.9),
+      rgb(250, 250, 250, 0.2)
+    ),
+    url("/images/background-images/slide-background-image-11.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#news-insights {
+  color: black;
+  background: linear-gradient(
+    100deg,
+    rgb(250, 250, 250, 1),
+    rgb(250, 250, 250, 1)
+  );
 }
 
 @media (min-width: 768px) {
@@ -286,6 +438,74 @@ button.class-2 {
       height: inherit;
       min-height: inherit;
       width: 80%;
+      top: 0rem;
+      left: -30%;
+      transform: skewX(-22.5deg);
+    }
+  }
+
+  #property-listings {
+    &::before {
+      content: "";
+      background-color: rgba(0, 0, 0, 0.55);
+      position: absolute;
+      height: 100%;
+      width: 30%;
+      top: 0rem;
+      left: -10%;
+      transform: skewX(-22.5deg);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.55);
+
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      height: 100%;
+      width: 20%;
+      top: 0rem;
+      right: -12%;
+      transform: skewX(-22.5deg);
+      z-index: 0;
+    }
+  }
+
+  #why-choose-us {
+    &::before {
+      content: "";
+      position: absolute;
+      background: linear-gradient(0deg, var(--gold-dark), var(--gold-light));
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      height: 100%;
+      width: 30%;
+      top: 0rem;
+      left: -10%;
+      transform: skewX(22.5deg);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      background: linear-gradient(0deg, var(--gold-dark), var(--gold-light));
+      height: 100%;
+      width: 20%;
+      top: 0rem;
+      right: -12%;
+      transform: skewX(22.5deg);
+      z-index: 0;
+    }
+  }
+
+  #news-insights {
+    &::before {
+      content: "";
+      position: absolute;
+      background: linear-gradient(0deg, var(--gold-dark), var(--gold-light));
+      height: 100%;
+      width: 50%;
       top: 0rem;
       left: -30%;
       transform: skewX(-22.5deg);

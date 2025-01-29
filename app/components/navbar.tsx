@@ -21,14 +21,15 @@ const Navbar = () => {
     <>
       <nav id="navbar" className="page-section">
         <Link href={"/"} className="logo-button">
-          Logo
+          <img src="/images/sds-logo.svg" alt="company-logo" />
+          <p>SDS Property Group</p>
         </Link>
         <div className="right-side">
-          <h4 id="phone-number">
+          <p id="phone-number">
             <FaPhone className="phone-icon" id="navbar-phone-icon" />
             123-456-7890
-          </h4>
-          <button id="schedule-button" className="class-1">
+          </p>
+          <button id="schedule-button" className="gold-fill">
             Book a Consultation
           </button>
           <button

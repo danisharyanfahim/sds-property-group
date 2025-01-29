@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
-import { FaChevronLeft, FaChevronRight, FaPlay } from "react-icons/fa6";
-import { GiPauseButton } from "react-icons/gi";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import { IoMdPlay, IoMdPause } from "react-icons/io";
 
 /* 
 // -infinite/wrapping
@@ -106,7 +106,7 @@ const SlideShow = ({
         {autoPlay && showPlayButton && (
           <div className="play-button-container">
             <button className="play-button" onClick={togglePause}>
-              <h3>{isPlaying ? <GiPauseButton /> : <FaPlay />}</h3>
+              <h3>{isPlaying ? <IoMdPause /> : <IoMdPlay />}</h3>
             </button>
           </div>
         )}
@@ -132,7 +132,7 @@ const SlideShow = ({
                 className="next-button control-button"
                 onClick={() => toggleSlide(currentSlide - 1)}
               >
-                <FaChevronLeft />
+                <MdKeyboardArrowLeft />
               </button>
             </div>
             <div className="button-container">
@@ -140,7 +140,7 @@ const SlideShow = ({
                 className="prev-button control-button"
                 onClick={() => toggleSlide(currentSlide + 1)}
               >
-                <FaChevronRight />
+                <MdKeyboardArrowRight />
               </button>
             </div>
           </div>

@@ -7,8 +7,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { FaPlay } from "react-icons/fa6";
-import { GiPauseButton } from "react-icons/gi";
+import { IoMdPlay, IoMdPause } from "react-icons/io";
 
 /* 
 This is a static ticker, meaning you wont be able to scroll left or right, the only thing you can do is pause it
@@ -159,7 +158,7 @@ const Ticker = ({
               className="play-button"
               onClick={() => setIsPlaying(!isPlaying)}
             >
-              <h3>{isPlaying ? <GiPauseButton /> : <FaPlay />}</h3>
+              <h3>{isPlaying ? <IoMdPause /> : <IoMdPlay />}</h3>
             </button>
           </div>
         )}

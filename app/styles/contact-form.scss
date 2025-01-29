@@ -17,17 +17,29 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
+      button {
+        padding: 0.5rem 2rem;
+        p {
+          font-size: 1rem;
+        }
+      }
     }
 
     > * {
       grid-column: span 2;
-      padding: 1rem;
+      padding: 0.5rem 0rem;
     }
   }
 }
 
 @container form-container (min-width: 480px) {
-  .contact-form form > :nth-child(-n + 6) {
-    grid-column: span 1;
+  .contact-form form {
+    > * {
+      padding: 1rem;
+    }
+    > :nth-child(-n + 6) {
+      grid-column: span 1;
+    }
   }
 }

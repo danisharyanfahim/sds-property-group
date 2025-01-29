@@ -7,8 +7,8 @@ import React, {
   useState,
 } from "react";
 import { addToFrontAndEnd } from "../../utils/utility-functions";
-import { FaChevronLeft, FaChevronRight, FaPlay } from "react-icons/fa6";
-import { GiPauseButton } from "react-icons/gi";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import { IoMdPlay, IoMdPause } from "react-icons/io";
 
 const gridGap = 16;
 
@@ -166,7 +166,7 @@ const Carousel = ({
               className="play-button"
               onClick={() => setIsPlaying(!isPlaying)}
             >
-              <h3>{isPlaying ? <GiPauseButton /> : <FaPlay />}</h3>
+              <h3>{isPlaying ? <IoMdPause /> : <IoMdPlay />}</h3>
             </button>
           </div>
         )}
@@ -178,7 +178,7 @@ const Carousel = ({
                 className="prev-button control-button"
                 onClick={() => toggleCard(currentCard + 1)}
               >
-                <FaChevronLeft />
+                <MdKeyboardArrowLeft />
               </button>
             </div>
             <div className="button-container">
@@ -186,7 +186,7 @@ const Carousel = ({
                 className="next-button control-button"
                 onClick={() => toggleCard(currentCard - 1)}
               >
-                <FaChevronRight />
+                <MdKeyboardArrowRight />
               </button>
             </div>
           </div>

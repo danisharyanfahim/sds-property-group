@@ -4,11 +4,11 @@ footer {
   background: rgb(0, 0, 0);
   color: white;
   justify-content: flex-end;
+  border-top: 1px solid var(--gold-light);
 
   .section-title {
     font-size: 1.85rem;
     margin-bottom: 0.75rem;
-    font-weight: 700;
   }
 
   a,
@@ -48,7 +48,7 @@ footer {
       flex-direction: column;
 
       > * {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.75rem;
       }
     }
   }
@@ -66,7 +66,7 @@ footer {
         display: flex;
         justify-content: center;
         .icon-link {
-          height: 3rem;
+          height: 2.5rem;
           aspect-ratio: 1 / 1;
           background: white;
         }
@@ -77,17 +77,21 @@ footer {
   #news-letter {
     min-height: 9rem;
     .send-button {
-      padding: 0.5rem;
-      border-bottom-right-radius: 0.25rem;
-      border-top-right-radius: 0.25rem;
+      padding: 0.5rem 0.75rem;
+      border-bottom-right-radius: 0.12rem;
+      border-top-right-radius: 0.12rem;
       border-bottom-left-radius: 0rem;
       border-top-left-radius: 0rem;
+
+      p {
+        font-size: 1rem;
+      }
     }
 
     input {
       width: 100%;
-      border-bottom-left-radius: 0.25rem;
-      border-top-left-radius: 0.25rem;
+      border-bottom-left-radius: 0.12rem;
+      border-top-left-radius: 0.12rem;
     }
 
     .newsletter-container {
@@ -100,7 +104,7 @@ footer {
   #contact-information .contact-info-item {
     display: flex;
     gap: 1rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
 
     .icon {
       display: flex;
@@ -126,7 +130,7 @@ footer {
       }
 
       > :not(:last-child) {
-        border-right: 2px solid white;
+        border-right: 2px solid var(--gold-light);
         padding-right: 0.5rem;
       }
 
