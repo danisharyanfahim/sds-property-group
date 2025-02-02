@@ -192,10 +192,10 @@ const Home = () => {
         <div className="info-section">
           <IoNewspaper className="icon" />
           <h2>Latest Insights & News</h2>
-          <p>
+          <h4>
             Share updates on real estate trends, investment tips, or company
-            milestones. Include a few blog post previews with "Read More" links.
-          </p>
+            milestones.
+          </h4>
         </div>
         <div className="media-section">
           <Carousel infinite={true} showPositionIndicator={false} delay={3000}>
