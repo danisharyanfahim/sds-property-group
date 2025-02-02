@@ -13,6 +13,20 @@
       width: 100%;
     }
 
+    input,
+    select,
+    textarea {
+      transition: all 0.1s;
+      font-size: 1.1rem;
+      &:hover {
+        box-shadow: inset 0px 0px 0px 2px silver;
+      }
+
+      &:focus {
+        box-shadow: inset 0px 0px 0px 2px gold;
+      }
+    }
+
     .button-container {
       display: flex;
       justify-content: center;

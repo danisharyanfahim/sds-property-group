@@ -2,15 +2,17 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
-import { FaPhone } from "react-icons/fa";
+import { BsFillBuildingsFill, BsInfoSquareFill } from "react-icons/bs";
+import { FaHandshake, FaPhone, FaPhoneAlt } from "react-icons/fa";
+import { IoMdHome } from "react-icons/io";
 import { IoMenu } from "react-icons/io5";
 
 const navButtonInfo = [
-  { name: "Home", link: "/" },
-  { name: "About", link: "/about" },
-  { name: "Services", link: "/services" },
-  { name: "Properties", link: "/properties" },
-  { name: "Contact", link: "/contact" },
+  { name: "Home", link: "/", icon: <IoMdHome /> },
+  { name: "About", link: "/about", icon: <BsInfoSquareFill /> },
+  { name: "Services", link: "/services", icon: <FaHandshake /> },
+  { name: "Properties", link: "/properties", icon: <BsFillBuildingsFill /> },
+  { name: "Contact", link: "/contact", icon: <FaPhoneAlt /> },
 ];
 
 const Navbar = () => {
@@ -52,7 +54,10 @@ const Navbar = () => {
                 navButton.link === pathname ? "active" : ""
               }`}
             >
-              <h4>{navButton.name}</h4>
+              <h4>
+                <div className="icon">{navButton.icon}</div>
+                {navButton.name}
+              </h4>
             </Link>
           ))}
         </nav>

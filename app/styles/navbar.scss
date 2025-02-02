@@ -97,11 +97,24 @@
         -0.239rem + 4.665vw,
         2rem
       ); //Clamp padding between 1 to 2 from large mobile width (425px) to tablet width (768px)
-      font-size: 2rem;
       font-weight: 300;
+      right: 0px;
+      transition: all 0.2s;
+
+      &:hover {
+        right: 10px;
+      }
 
       h4 {
         transition: all 0.2s;
+        display: flex;
+        gap: 1rem;
+        font-size: 2rem;
+        align-items: center;
+
+        .icon {
+          display: flex;
+        }
       }
 
       &.active {

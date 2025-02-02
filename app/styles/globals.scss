@@ -22,6 +22,11 @@ button {
   border: 0px solid transparent;
   cursor: pointer;
   color: inherit;
+  transition: all 0.15s;
+
+  &:hover {
+    transform: scale(105%);
+  }
 }
 
 a {
@@ -125,6 +130,14 @@ main {
       text-align: left;
     }
 
+    h1 {
+      font-size: clamp(2.15rem, 1.907rem + 1.214vw, 3rem);
+    }
+
+    h2 {
+      font-size: clamp(1.85rem, 1.664rem + 0.929vw, 2.5rem);
+    }
+
     button {
       padding: 0.75rem 1rem;
       p {
@@ -138,13 +151,17 @@ main {
       display: flex;
       flex-direction: column;
       width: 100%;
-      padding: 1rem;
+      padding: 1.25rem;
       z-index: 1;
     }
 
     .info-section {
       align-items: flex-start;
       gap: 1rem;
+
+      .icon {
+        font-size: 3rem;
+      }
 
       > * :not(:last-child) {
         margin-bottom: 0.5rem;
@@ -199,11 +216,11 @@ main {
         -webkit-mask-image: url("/images/sds-logo.svg");
         -webkit-mask-repeat: no-repeat;
         -webkit-mask-size: contain;
-        -webkit-mask-position: center;
+        -webkit-mask-position: left;
         mask-image: url("/images/sds-logo.svg");
         mask-repeat: no-repeat;
         mask-size: contain;
-        mask-position: center;
+        mask-position: left;
         background-color: white;
         margin: 1rem;
         top: 3rem;
@@ -241,16 +258,9 @@ button.white-outline {
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   color: white;
-}
 
-.icon-title {
-  display: flex;
-  gap: 0.75rem;
-  align-items: center;
-
-  @media (max-width: 767px) {
-    flex-direction: column;
-    align-items: flex-start;
+  &:active {
+    background-color: rgba(255, 255, 255, 0.356);
   }
 }
 
@@ -266,6 +276,11 @@ button.gold-outline {
   background-color: rgba(0, 0, 0, 0.1);
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
+
+  &:focus {
+    color: white;
+    border: 3px solid white;
+  }
 }
 
 button.gold-fill {
@@ -273,6 +288,10 @@ button.gold-fill {
   color: black;
   border-radius: 0.12rem;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    color: white;
+  }
 }
 
 #featured-services {
@@ -373,7 +392,7 @@ button.gold-fill {
   color: black;
   background: linear-gradient(
     100deg,
-    rgb(250, 250, 250, 1),
+    rgb(239, 241, 245),
     rgb(250, 250, 250, 1)
   );
 }

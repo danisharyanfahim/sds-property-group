@@ -8,7 +8,11 @@ import IconLink from "./icon-link";
 const Footer = () => {
   return (
     <footer id="footer" className="page-section">
-      <div className="top-section">
+      <section className="top-section">
+        <div className="logo" />
+        <h1>SDS Property Group</h1>
+      </section>
+      <section className="mid-section">
         <section id="quick-links">
           <h4 className="section-title">Quick Links</h4>
           <nav className="links-container">
@@ -74,7 +78,7 @@ const Footer = () => {
             />
           </nav>
         </section>
-      </div>
+      </section>
       <section id="legal-info">
         <div className="content-container">
           <div>

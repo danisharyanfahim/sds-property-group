@@ -5,9 +5,13 @@ import SlideShow from "@/app/components/ui/slideshow";
 import Ticker from "@/app/components/ui/ticker";
 import { list } from "aws-amplify/storage";
 import React from "react";
-import { BiSolidBuildingHouse } from "react-icons/bi";
+import { BiMessageDetail, BiSolidBuildingHouse } from "react-icons/bi";
+import { BsBuildingFill } from "react-icons/bs";
+import { CiCircleQuestion } from "react-icons/ci";
 import { GiBanknote } from "react-icons/gi";
 import { GrCatalog } from "react-icons/gr";
+import { IoNewspaper } from "react-icons/io5";
+import { RiMailFill } from "react-icons/ri";
 import { TfiRulerAlt2 } from "react-icons/tfi";
 import { VscGraphLine } from "react-icons/vsc";
 
@@ -43,10 +47,8 @@ const Home = () => {
       </header>
       <section id="featured-services" className="stacked page-section">
         <div className="info-section">
-          <h2 className="icon-title">
-            <GrCatalog className="icon" />
-            Explore Our Services
-          </h2>
+          <GrCatalog className="icon" />
+          <h2>Explore Our Services</h2>
           <h4>
             A short intro about SDS Property Group’s commitment to excellence in
             real estate
@@ -83,6 +85,7 @@ const Home = () => {
         className="alternating-reverse page-section"
       >
         <div className="info-section">
+          <BsBuildingFill className="icon" />
           <h2>Featured Properties for Sale</h2>
         </div>
         <div className="media-section">
@@ -118,6 +121,7 @@ const Home = () => {
       </section>
       <section id="why-choose-us" className="alternating page-section">
         <div className="info-section">
+          <CiCircleQuestion className="icon" />
           <h2>Why Choose Us?</h2>
           <h4>
             A few sentences on expertise, market insights, and tailored
@@ -167,6 +171,7 @@ const Home = () => {
       </section>
       <section id="testimonials" className="stacked page-section">
         <div className="info-section">
+          <BiMessageDetail className="icon" />
           <h2>What Our Clients Say</h2>
         </div>
         <div className="media-section">
@@ -185,6 +190,7 @@ const Home = () => {
       </section>
       <section id="news-insights" className="stacked page-section">
         <div className="info-section">
+          <IoNewspaper className="icon" />
           <h2>Latest Insights & News</h2>
           <p>
             Share updates on real estate trends, investment tips, or company
@@ -210,6 +216,7 @@ const Home = () => {
       </section>
       <section id="call-to-action" className="alternating page-section">
         <div className="info-section">
+          <RiMailFill className="icon" />
           <h2>Looking for the perfect property? Let us help you find it!</h2>
           <button className="learn-more gold-outline">
             Schedule a Consultation

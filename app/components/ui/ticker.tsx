@@ -8,7 +8,7 @@ import React, {
   useState,
 } from "react";
 import { IoMdPlay, IoMdPause } from "react-icons/io";
-
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 /* 
 This is a static ticker, meaning you wont be able to scroll left or right, the only thing you can do is pause it
 I will add the control functions and ability to drag and scroll later on 
