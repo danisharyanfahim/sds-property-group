@@ -9,7 +9,7 @@ import { IoMenu } from "react-icons/io5";
 
 const navButtonInfo = [
   { name: "Home", link: "/", icon: <IoMdHome /> },
-  { name: "About", link: "/about", icon: <BsInfoSquareFill /> },
+  // { name: "About", link: "/about", icon: <BsInfoSquareFill /> },
   { name: "Services", link: "/services", icon: <FaHandshake /> },
   { name: "Properties", link: "/properties", icon: <BsFillBuildingsFill /> },
   { name: "Contact", link: "/contact", icon: <FaPhoneAlt /> },

@@ -1,10 +1,38 @@
+import { getAllItems } from "@/app/utils/server-actions";
+import Link from "next/link";
 import React from "react";
 
-const Properties = () => {
+interface Property {
+  name: string;
+  currentSlug: string;
+  dateCreated: string;
+}
+
+const Properties = async () => {
+  const propertyData: Property[] = await getAllItems("property");
   return (
     <main>
       <h1>Properties For Sale</h1>
-      <section id="commercial-real-estate">
+      {propertyData.map((property) => {
+        return (
+          <div className="property-card">
+            <h2>{property.name}</h2>
+            <Link href={`/properties/${property.currentSlug}`}>
+              <button className="link-button">
+                <p>Read More</p>
+              </button>
+            </Link>
+          </div>
+        );
+      })}
+    </main>
+  );
+};
+
+export default Properties;
+
+{
+  /* <section id="commercial-real-estate">
         <h2>Commercial Real Estate</h2>
         <ul>
           <li className="card" id="buy/sell condos">
@@ -102,9 +130,5 @@ const Properties = () => {
             </ul>
           </li>
         </ul>
-      </section>
-    </main>
-  );
-};
-
-export default Properties;
+      </section> */
+}

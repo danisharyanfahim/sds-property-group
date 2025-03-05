@@ -17,7 +17,7 @@ const Footer = () => {
           <h4 className="section-title">Quick Links</h4>
           <nav className="links-container">
             <Link href={"/"}>Home</Link>
-            <Link href={"/about"}>About</Link>
+            {/* <Link href={"/about"}>About</Link> */}
             <Link href={"/services"}>Services</Link>
             <Link href={"/properties"}>Properties</Link>
             <Link href={"/contact"}>Contact</Link>
