@@ -17,9 +17,13 @@ export const getAllItems = async (
   //   'id': _id
   // }`;
   const query = `
-  *[_type == '${itemType.toLowerCase()}'] | order(_createdAt desc) {
-  name,
-  'dateCreated': _createdAt,
+  *[_type == '${itemType.toLowerCase()}'] | order(_createdAt desc)  {
+  name, type,
+  images, amenities,
+  rooms, size, price, 
+  city, state, area,
+  'avgRent': averageRent,
+  'datePosted': _createdAt,
   'currentSlug': slug.current,
   'id': _id
 }`;
@@ -33,8 +37,12 @@ export const getAllItems = async (
 export const getItem = async (itemType: string, slug: string) => {
   const query = `
 *[_type == '${itemType.toLowerCase()}' && slug.current == "${slug}"] {
-    name,
-  'dateCreated': _createdAt,
+  name, type,
+  images, amenities,
+  rooms, size, price, 
+  city, state, area,
+  'avgRent': averageRent,
+  'datePosted': _createdAt,
   'currentSlug': slug.current,
   'id': _id
 }[0]

@@ -169,7 +169,7 @@
       }
       .prev-slide-container {
         z-index: 1;
-        animation: fadeOut 1s;
+        animation: fadeOut 1s forwards;
       }
     }
 

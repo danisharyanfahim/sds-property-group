@@ -1,30 +1,86 @@
+import SlideShow from "@/app/components/ui/slideshow";
+import { urlFor } from "@/app/lib/client";
 import { getAllItems } from "@/app/utils/server-actions";
+import { formatTimeDifference } from "@/app/utils/utility-functions";
 import Link from "next/link";
 import React from "react";
 
-interface Property {
+export interface Property {
   name: string;
   currentSlug: string;
-  dateCreated: string;
+  datePosted: string;
+  size: number;
+  price: number;
+  avgRent: number;
+  rooms: number | null;
+  state: string;
+  city: string;
+  area: string;
+  type: string;
+  amenities: string[];
+  images: any[];
 }
 
 const Properties = async () => {
   const propertyData: Property[] = await getAllItems("property");
   return (
-    <main>
+    <main className="property-listings-page">
       <h1>Properties For Sale</h1>
-      {propertyData.map((property) => {
-        return (
-          <div className="property-card">
-            <h2>{property.name}</h2>
-            <Link href={`/properties/${property.currentSlug}`}>
-              <button className="link-button">
-                <p>Read More</p>
-              </button>
-            </Link>
-          </div>
-        );
-      })}
+      <div className="properties-container">
+        {propertyData.map((property) => {
+          const {
+            name,
+            datePosted,
+            size,
+            price,
+            avgRent,
+            rooms,
+            state,
+            city,
+            area,
+            type,
+            amenities,
+            images,
+            currentSlug,
+          } = property;
+          return (
+            <div className="property-card">
+              <SlideShow
+                infinite={true}
+                autoPlay={false}
+                showPositionIndicator={false}
+                showPositionButtons={false}
+              >
+                {images.map((image) => {
+                  return (
+                    <figure className="image-container">
+                      <img
+                        src={urlFor(image).url()}
+                        alt="property-image"
+                        className="property-image"
+                        loading="lazy"
+                      />
+                    </figure>
+                  );
+                })}
+              </SlideShow>
+              <h2>{name}</h2>
+              <p>Posted: {formatTimeDifference(datePosted)}</p>
+              <p>Size {size} sqft</p>
+              <p>Price: {price} INR</p>
+              <p>Rooms: {rooms ?? "Not Applicable"}</p>
+              <p>State: {state}</p>
+              <p>City: {city}</p>
+              <p>Type: {type}</p>
+              <Link href={`/properties/${currentSlug}`}>
+                <button className="link-button white-outline">
+                  <p>Learn More</p>
+                </button>
+              </Link>
+            </div>
+          );
+        })}
+      </div>
     </main>
   );
 };

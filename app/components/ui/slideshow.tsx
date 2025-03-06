@@ -81,6 +81,12 @@ const SlideShow = ({
   };
 
   useEffect(() => {
+    if (!autoPlay) {
+      toggleSlide(currentSlide + 1);
+    }
+  }, []); //Sets it to the second slide if autoPlaying is disabled, this gets rid of a bug relating to the previous slide fading out with a forward animation property
+
+  useEffect(() => {
     const interval = setInterval(() => {
       if (autoPlay && isPlaying) {
         if (direction === "forward") {
