@@ -133,33 +133,6 @@ const Services = () => {
               minimizing downtime and ensuring operational continuity.
             </p>
           </li>
-          <li className="card" id="insurance - property">
-            <h4>Insurance - Property</h4>
-            <p>
-              Protect your real estate assets with our comprehensive property
-              insurance plans. Designed to cover unexpected damages or losses,
-              our policies provide peace of mind and financial security,
-              tailored to your specific property portfolio.
-            </p>
-          </li>
-          <li className="card" id="insurance - life">
-            <h4>Insurance - Life</h4>
-            <p>
-              Secure your family’s future with life insurance solutions that
-              offer tailored coverage for every stage of life. Whether for
-              legacy planning or financial protection, we ensure your peace of
-              mind with flexible and comprehensive policies.
-            </p>
-          </li>
-          <li className="card" id="insurance - assets/equity">
-            <h4>Insurance - Assets/Equity</h4>
-            <p>
-              Shield your valuable assets and equity from unforeseen risks with
-              our specialized insurance services. From luxury properties to
-              personal investments, we craft solutions to safeguard your wealth
-              and provide stability for future growth.
-            </p>
-          </li>
           <li className="card" id="land management">
             <h4>Land Management</h4>
             <p>

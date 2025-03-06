@@ -548,33 +548,21 @@ main.property-listings-page {
   margin-bottom: 5rem;
 }
 
-.property-card {
-  width: 320px;
-  min-height: 540px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: black;
-  gap: 0.25rem;
+.property-page .slide-show {
+  max-width: 1000px;
+}
 
-  .slide-show {
-    max-height: 240px;
-
-    .slides-container {
-      background-color: transparent !important;
-      box-shadow: none;
-    }
+.property-card,
+.property-page {
+  .slides-container {
+    background-color: transparent !important;
+    box-shadow: none;
 
     .current-slide-container,
     .prev-slide-container,
     .slide-container {
       height: 100%;
     }
-  }
-
-  .link-button {
-    padding: 0.5rem 1rem;
   }
 
   .image-container {
@@ -592,5 +580,24 @@ main.property-listings-page {
       // filter: drop-shadow(0px 0px 5px var(--ui-static-shadow-color-dim))
       //   drop-shadow(0px 0px 10px var(--ui-static-shadow-color-dim));
     }
+  }
+}
+
+.property-card {
+  width: 320px;
+  min-height: 540px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: black;
+  gap: 0.25rem;
+
+  .slide-show {
+    max-height: 240px;
+  }
+
+  .link-button {
+    padding: 0.5rem 1rem;
   }
 }
