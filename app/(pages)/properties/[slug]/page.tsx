@@ -26,7 +26,8 @@ const PropertyPage = async ({ params }: { params: { slug: string } }) => {
     <main className="property-page">
       <SlideShow
         infinite={true}
-        autoPlay={false}
+        delay={2000}
+        autoPlay={true}
         showPositionIndicator={false}
         showPositionButtons={false}
       >
