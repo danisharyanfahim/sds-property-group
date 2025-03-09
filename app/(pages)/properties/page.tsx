@@ -50,6 +50,7 @@ const Properties = async () => {
                 autoPlay={false}
                 showPositionIndicator={false}
                 showPositionButtons={false}
+                showPlayButton={false}
               >
                 {images.map((image) => {
                   return (

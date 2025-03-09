@@ -384,6 +384,7 @@ ul.flex-cards {
   );
   grid-auto-rows: 1fr;
   width: 100%;
+  padding: 0.5rem;
 }
 
 .flip-card {
@@ -394,6 +395,7 @@ ul.flex-cards {
   flex-direction: column;
   justify-content: center;
   aspect-ratio: 1 / 1;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.39);
   &.flipped {
     transform: rotateY(180deg);
   }
@@ -409,6 +411,8 @@ ul.flex-cards {
     width: 100%;
     position: absolute;
     padding: 1rem;
+    background-size: cover;
+    overflow: hidden;
 
     > * {
       display: table-cell;
@@ -419,10 +423,28 @@ ul.flex-cards {
 
   .back {
     transform: rotateY(180deg);
-    background-color: red;
+    color: black;
   }
 
   .front {
-    background-color: blue;
+    .background-icon {
+      font-size: 300px;
+      position: absolute;
+      color: rgba(68, 68, 68, 0.363);
+      bottom: -100px;
+      right: -100px;
+      z-index: 0;
+    }
+
+    .content-container {
+      z-index: 1;
+      .icon {
+        font-size: 3rem;
+      }
+      h4 {
+        font-size: 1.65rem;
+        text-align: center;
+      }
+    }
   }
 }

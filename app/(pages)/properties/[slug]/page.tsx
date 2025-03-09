@@ -30,6 +30,7 @@ const PropertyPage = async ({ params }: { params: { slug: string } }) => {
         autoPlay={true}
         showPositionIndicator={false}
         showPositionButtons={false}
+        showPlayButton={false}
       >
         {images.map((image) => {
           return (
