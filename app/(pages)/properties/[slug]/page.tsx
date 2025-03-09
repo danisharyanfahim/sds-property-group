@@ -4,6 +4,7 @@ import { getItem } from "@/app/utils/server-actions";
 import { formatDate } from "@/app/utils/utility-functions";
 import SlideShow from "@/app/components/ui/slideshow";
 import { urlFor } from "@/app/lib/client";
+import { MdLocationOn } from "react-icons/md";
 
 const PropertyPage = async ({ params }: { params: { slug: string } }) => {
   const propertyData: Property = await getItem("property", params.slug);
@@ -24,45 +25,81 @@ const PropertyPage = async ({ params }: { params: { slug: string } }) => {
   } = propertyData;
   return (
     <main className="property-page">
-      <SlideShow
-        infinite={true}
-        delay={2000}
-        autoPlay={true}
-        showPositionIndicator={false}
-        showPositionButtons={false}
-        showPlayButton={false}
-      >
-        {images.map((image) => {
-          return (
-            <figure className="image-container">
-              <img
-                src={urlFor(image).url()}
-                alt="property-image"
-                className="property-image"
-                loading="lazy"
-              />
-            </figure>
-          );
-        })}
-      </SlideShow>
-      <h2>{name}</h2>
-      <p>Posted: {formatDate(datePosted)}</p>
-      <p>Type: {type}</p>
-      <p>Size {size} sqft</p>
-      <p>Price: {price} INR</p>
-      <p>Average Rent: {avgRent} INR</p>
-      <p>Rooms: {rooms ?? "Not Applicable"}</p>
-      <p>State: {state}</p>
-      <p>City: {city}</p>
-      <p>Area: {area}</p>
-      <p>Price/sqft: {Math.round(price / size)} INR</p>
-
-      <div className="amenities-container">
-        <strong>Amenities</strong>
-        {amenities.map((amenity) => {
-          return <p key={amenity}>{amenity}</p>;
-        })}
-      </div>
+      <section className="property-info">
+        <SlideShow
+          infinite={true}
+          delay={2000}
+          autoPlay={false}
+          showPositionIndicator={false}
+          showPositionButtons={false}
+          showPlayButton={false}
+        >
+          {images.map((image) => {
+            return (
+              <figure className="image-container">
+                <img
+                  src={urlFor(image).url()}
+                  alt="property-image"
+                  className="property-image"
+                  loading="lazy"
+                />
+              </figure>
+            );
+          })}
+        </SlideShow>
+        <div className="content-container">
+          <div className="background-icon">
+            <img src="/images/sds-logo.svg" alt="company-logo" />
+          </div>
+          <div className="header">
+            <small>{formatDate(datePosted)}</small>
+            <h2>{name}</h2>
+            <p>
+              <MdLocationOn />
+              {city}, {area}
+            </p>
+            <div className="price-container">
+              <p>{"\u20B9" + price}</p>
+            </div>
+          </div>
+          <div className="body">
+            <p>
+              <strong>Type</strong> {type}
+            </p>
+            <p>
+              <strong>Size</strong> {size} sqft
+            </p>
+            <p>
+              <strong>Average Rent</strong> {"\u20B9" + avgRent}
+            </p>
+            <p>
+              <strong>Rooms</strong> {rooms ?? "Not Applicable"}
+            </p>
+            <p>
+              <strong>City</strong> {city}
+            </p>
+            <p>
+              <strong>State</strong> {state}
+            </p>
+            <p>
+              <strong>Price Per Sqft</strong>{" "}
+              {"\u20B9" + Math.round(price / size)}
+            </p>
+          </div>
+          <div className="amenities-container">
+            <h4>Amenities</h4>
+            <div className="amenities">
+              {amenities.map((amenity) => {
+                return (
+                  <p className="tag" key={amenity}>
+                    {amenity}
+                  </p>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 };
