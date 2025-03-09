@@ -445,7 +445,7 @@ main.property-listings-page {
       rgba(0, 0, 0, 0.9),
       rgba(0, 0, 0, 0.7)
     ),
-    url("/images/background-images/slide-background-image-5.jpg");
+    url("/images/background-images/slide-background-image-11.jpg");
   background-size: cover;
 }
 
@@ -738,6 +738,25 @@ section#services {
   }
 }
 
+main#contact {
+  background: linear-gradient(
+      100deg,
+      rgba(0, 0, 0, 0.951),
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0.8)
+    ),
+    url("/images/background-images/slide-background-image-5.jpg");
+  background-size: cover;
+  section#contact-us {
+    max-width: 1000px;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: rgba(0, 0, 0, 0.45);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+}
+
 @media (min-width: 768px) {
   main {
     section {
@@ -780,6 +799,17 @@ section#services {
       }
     }
   }
+
+  main#contact {
+    section#contact-us {
+      .info-section {
+        padding: 2.25rem;
+        h4 {
+          text-align: center;
+        }
+      }
+    }
+  }
 }
 
 @media (min-width: 1024px) {
@@ -801,6 +831,19 @@ section#services {
       top: 0rem;
       left: -30%;
       transform: skewX(-22.5deg);
+    }
+  }
+
+  main#contact {
+    section#contact-us {
+      .info-section {
+        h2 {
+          font-size: 3.5rem;
+        }
+        .icon {
+          font-size: 3.5rem;
+        }
+      }
     }
   }
 
