@@ -4,6 +4,8 @@ import { getAllItems } from "@/app/utils/server-actions";
 import { formatTimeDifference } from "@/app/utils/utility-functions";
 import Link from "next/link";
 import React from "react";
+import { BsFillBuildingsFill } from "react-icons/bs";
+import { MdLocationOn } from "react-icons/md";
 
 export interface Property {
   name: string;
@@ -25,63 +27,87 @@ const Properties = async () => {
   const propertyData: Property[] = await getAllItems("property");
   return (
     <main className="property-listings-page">
-      <h1>Properties For Sale</h1>
-      <div className="properties-container">
-        {propertyData.map((property) => {
-          const {
-            name,
-            datePosted,
-            size,
-            price,
-            avgRent,
-            rooms,
-            state,
-            city,
-            area,
-            type,
-            amenities,
-            images,
-            currentSlug,
-          } = property;
-          return (
-            <div className="property-card">
-              <SlideShow
-                infinite={true}
-                autoPlay={false}
-                showPositionIndicator={false}
-                showPositionButtons={false}
-                showPlayButton={false}
-              >
-                {images.map((image) => {
-                  return (
-                    <figure className="image-container">
-                      <img
-                        src={urlFor(image).url()}
-                        alt="property-image"
-                        className="property-image"
-                        loading="lazy"
-                      />
-                    </figure>
-                  );
-                })}
-              </SlideShow>
-              <h2>{name}</h2>
-              <p>Posted: {formatTimeDifference(datePosted)}</p>
-              <p>Size {size} sqft</p>
-              <p>Price: {price} INR</p>
-              <p>Rooms: {rooms ?? "Not Applicable"}</p>
-              <p>State: {state}</p>
-              <p>City: {city}</p>
-              <p>Type: {type}</p>
-              <Link href={`/properties/${currentSlug}`}>
-                <button className="link-button white-outline">
-                  <p>Learn More</p>
-                </button>
-              </Link>
-            </div>
-          );
-        })}
-      </div>
+      <section className="stacked">
+        <div className="info-section">
+          <BsFillBuildingsFill className="icon" />
+          <h2 className="title">Properties For Sale</h2>
+          <h4>Short description explaining the various services we provide</h4>
+        </div>
+        <div className="properties-container">
+          {propertyData.map((property) => {
+            const {
+              name,
+              datePosted,
+              size,
+              price,
+              avgRent,
+              rooms,
+              state,
+              city,
+              area,
+              type,
+              amenities,
+              images,
+              currentSlug,
+            } = property;
+            return (
+              <div className="property-card">
+                <SlideShow
+                  infinite={true}
+                  autoPlay={false}
+                  showPositionIndicator={false}
+                  showPositionButtons={false}
+                  showPlayButton={false}
+                >
+                  {images.map((image) => {
+                    return (
+                      <figure className="image-container">
+                        <img
+                          src={urlFor(image).url()}
+                          alt="property-image"
+                          className="property-image"
+                          loading="lazy"
+                        />
+                      </figure>
+                    );
+                  })}
+                </SlideShow>
+                <div className="content-container">
+                  <div className="background-icon">
+                    <img src="/images/sds-logo.svg" alt="company-logo" />
+                  </div>
+                  <div className="price-container">
+                    <h4>{"\u20B9" + price} </h4>
+                  </div>
+                  <small>{formatTimeDifference(datePosted)}</small>
+                  <h2>{name}</h2>
+                  <p>{type}</p>
+                  <p>
+                    {size} sqft |{" "}
+                    {rooms !== null && rooms !== undefined
+                      ? rooms + `${rooms > 1 ? " beds" : " bed"}`
+                      : "Not Applicable"}
+                  </p>
+                  <p>
+                    <MdLocationOn />
+                    {city}, {state}
+                  </p>
+                  <div className="button-container">
+                    <Link
+                      href={`/properties/${currentSlug}`}
+                      className="property-link"
+                    >
+                      <button className="link-button dark-fill">
+                        <p>Learn More</p>
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
     </main>
   );
 };

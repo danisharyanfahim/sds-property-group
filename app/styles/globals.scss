@@ -399,12 +399,18 @@ button.gold-fill {
 
 main.property-listings-page {
   padding-top: 5rem;
+
+  section.stacked {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 main.services-page {
+  padding-top: 5rem;
   .info-section {
     color: black;
-    margin-bottom: 2rem;
     h2 {
       font-size: 3rem;
     }
@@ -426,8 +432,24 @@ main.services-page {
   }
 }
 
+main.property-listings-page {
+  .info-section {
+    .icon,
+    h2 {
+      font-size: 3rem;
+    }
+  }
+  background: linear-gradient(
+      100deg,
+      rgba(0, 0, 0, 0.951),
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0.7)
+    ),
+    url("/images/background-images/slide-background-image-5.jpg");
+  background-size: cover;
+}
+
 section#services {
-  margin-top: 2rem;
   margin-bottom: 5rem;
 }
 
@@ -461,7 +483,7 @@ section#services {
   }
 
   .image-container {
-    height: 100%;
+    height: 320px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -471,7 +493,7 @@ section#services {
       height: 100%;
       width: 100%;
       position: absolute;
-      object-fit: contain;
+      object-fit: cover;
       // filter: drop-shadow(0px 0px 5px var(--ui-static-shadow-color-dim))
       //   drop-shadow(0px 0px 10px var(--ui-static-shadow-color-dim));
     }
@@ -480,13 +502,105 @@ section#services {
 
 .property-card {
   width: 320px;
-  min-height: 540px;
+  min-height: 480px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: black;
-  gap: 0.25rem;
+  background-color: white;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.39);
+
+  .slide-show {
+    .control-buttons {
+      opacity: 0%;
+      color: white;
+    }
+    &:hover {
+      .control-buttons {
+        opacity: 100%;
+      }
+    }
+  }
+
+  .content-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 0.25rem;
+    color: black;
+    z-index: 2;
+
+    .background-icon {
+      height: 200px;
+      width: 200px;
+      position: absolute;
+      opacity: 10%;
+      left: 100px;
+      top: 80px;
+      z-index: 0;
+    }
+
+    > :nth-last-child(2) {
+      border-bottom: 1px solid var(--grey-light);
+      padding-bottom: 1rem;
+    }
+
+    > * {
+      display: flex;
+      gap: 0.25rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+    }
+
+    small {
+      font-size: 1rem;
+      color: var(--grey-dark);
+    }
+
+    p {
+      font-size: 1.12rem;
+      color: var(--grey-extra-dark);
+    }
+
+    .price-container {
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      top: -25px;
+      right: 1rem;
+      color: white;
+      padding: 1rem;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      h4 {
+        font-weight: 350;
+      }
+    }
+
+    .button-container {
+      margin-top: auto;
+      display: flex;
+      align-items: flex-start;
+      padding-top: 1rem;
+      height: 70px;
+    }
+    .property-link {
+      p {
+        color: white;
+        font-weight: 100;
+        font-size: 1.15rem;
+      }
+    }
+  }
 
   .slide-show {
     max-height: 240px;
@@ -566,10 +680,19 @@ section#services {
   main.services-page {
     .info-section {
       h2 {
-        font-size: 5rem;
+        font-size: 4.5rem;
       }
       .icon {
-        font-size: 5rem;
+        font-size: 4.5rem;
+      }
+    }
+  }
+
+  main.property-listings-page {
+    .info-section {
+      .icon,
+      h2 {
+        font-size: 3.5rem;
       }
     }
   }
