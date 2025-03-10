@@ -421,6 +421,7 @@ ul.flex-cards {
 
   .front,
   .back {
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     display: flex;
     align-items: center;
