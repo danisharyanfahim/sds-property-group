@@ -19,7 +19,29 @@ export const getAllItems = async (
   const query = `
   *[_type == '${itemType.toLowerCase()}'] | order(_createdAt desc)  {
   name, type,
-  images, amenities,
+  images, amenities, overview,
+  rooms, size, price, 
+  city, state, area,
+  'avgRent': averageRent,
+  'datePosted': _createdAt,
+  'currentSlug': slug.current,
+  'id': _id
+}`;
+  const itemData = await sanityFetch({
+    query: query,
+    revalidate: 30,
+  });
+  return itemData;
+};
+
+export const getLatestItems = async (
+  itemType: string,
+  numberOfItems: number
+) => {
+  const query = `
+  *[_type == '${itemType.toLowerCase()}'][0...${numberOfItems}] | order(_createdAt desc)  {
+  name, type,
+  images, amenities, overview,
   rooms, size, price, 
   city, state, area,
   'avgRent': averageRent,
@@ -38,7 +60,7 @@ export const getItem = async (itemType: string, slug: string) => {
   const query = `
 *[_type == '${itemType.toLowerCase()}' && slug.current == "${slug}"] {
   name, type,
-  images, amenities,
+  images, amenities, overview,
   rooms, size, price, 
   city, state, area,
   'avgRent': averageRent,

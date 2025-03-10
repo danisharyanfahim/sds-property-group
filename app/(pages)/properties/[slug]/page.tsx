@@ -21,7 +21,7 @@ const PropertyPage = async ({ params }: { params: { slug: string } }) => {
     type,
     amenities,
     images,
-    currentSlug,
+    overview,
   } = propertyData;
   return (
     <main className="property-page">
@@ -85,6 +85,9 @@ const PropertyPage = async ({ params }: { params: { slug: string } }) => {
               <strong>Price Per Sqft</strong>{" "}
               {"\u20B9" + Math.round(price / size)}
             </p>
+          </div>
+          <div className="overview">
+            <p>{overview}</p>
           </div>
           <div className="amenities-container">
             <h4>Amenities</h4>

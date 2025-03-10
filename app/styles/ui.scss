@@ -332,6 +332,23 @@ ul.flex-cards {
 
 .news-card {
   color: var(--gold-light);
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    h4,
+    p {
+      text-wrap: balance;
+    }
+    p {
+      color: var(--card-color-3);
+    }
+
+    h4 {
+      color: var(--card-color-4);
+    }
+  }
 }
 
 .testimonial-slide {
@@ -351,8 +368,9 @@ ul.flex-cards {
       width: 100%;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-evenly;
       flex-direction: column;
+      padding: 1rem;
     }
   }
 }

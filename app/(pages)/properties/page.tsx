@@ -20,6 +20,7 @@ export interface Property {
   area: string;
   type: string;
   amenities: string[];
+  overview: string;
   images: any[];
 }
 
@@ -40,13 +41,10 @@ const Properties = async () => {
               datePosted,
               size,
               price,
-              avgRent,
               rooms,
               state,
               city,
-              area,
               type,
-              amenities,
               images,
               currentSlug,
             } = property;

@@ -56,6 +56,7 @@ export default {
       type: 'number',
       title: 'Average Rent Rate',
     },
+    {name: 'overview', type: 'text', title: 'Overview'},
     {
       name: 'amenities',
       type: 'array',

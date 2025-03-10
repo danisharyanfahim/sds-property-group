@@ -31,9 +31,11 @@ const Navbar = () => {
             <FaPhone className="phone-icon" id="navbar-phone-icon" />
             123-456-7890
           </p>
-          <button id="schedule-button" className="gold-fill">
-            Book a Consultation
-          </button>
+          <Link href={"/contact"}>
+            <button id="schedule-button" className="gold-fill">
+              Book a Consultation
+            </button>
+          </Link>
           <button
             className="nav-menu-button"
             onClick={() => setShowing((prev) => !prev)}
