@@ -56,7 +56,7 @@ const PropertyPage = async ({ params }: { params: { slug: string } }) => {
             <h2>{name}</h2>
             <p>
               <MdLocationOn />
-              {city}, {area}
+              {city}, {state}
             </p>
             <div className="price-container">
               <p>{"\u20B9" + price}</p>
@@ -74,6 +74,9 @@ const PropertyPage = async ({ params }: { params: { slug: string } }) => {
             </p>
             <p>
               <strong>Rooms</strong> {rooms ?? "Not Applicable"}
+            </p>
+            <p>
+              <strong>Region</strong> {area}
             </p>
             <p>
               <strong>City</strong> {city}
